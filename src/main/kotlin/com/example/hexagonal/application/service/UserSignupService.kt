@@ -6,7 +6,7 @@ import com.example.hexagonal.application.port.out.UserRepositoryPort
 import com.example.hexagonal.domain.User
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class UserSignupService(
