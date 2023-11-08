@@ -3,12 +3,12 @@ package com.example.hexagonal.application.service
 import com.example.hexagonal.adapter.dto.request.UserSignupRequest
 import com.example.hexagonal.application.port.`in`.UserSignupUseCase
 import com.example.hexagonal.application.port.out.UserRepositoryPort
+import com.example.hexagonal.common.UseCase
 import com.example.hexagonal.domain.User
 import org.springframework.security.crypto.password.PasswordEncoder
-import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
-@Service
+@UseCase
 class UserSignupService(
     private val userRepositoryPort: UserRepositoryPort,
     private val passwordEncoder : PasswordEncoder

@@ -4,12 +4,12 @@ import com.example.hexagonal.adapter.dto.request.UserLoginRequest
 import com.example.hexagonal.adapter.dto.response.TokenResponse
 import com.example.hexagonal.application.port.`in`.UserLoginUseCase
 import com.example.hexagonal.application.port.out.UserRepositoryPort
+import com.example.hexagonal.common.UseCase
 import com.example.hexagonal.global.security.jwt.JwtProvider
 import org.springframework.security.crypto.password.PasswordEncoder
-import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
-@Service
+@UseCase
 class UserLoginService(
     private val passwordEncoder: PasswordEncoder,
     private val userRepositoryPort: UserRepositoryPort,
