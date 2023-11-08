@@ -5,6 +5,7 @@ import com.example.hexagonal.application.port.`in`.UserSignupUseCase
 import com.example.hexagonal.application.port.out.UserRepositoryPort
 import com.example.hexagonal.common.UseCase
 import com.example.hexagonal.domain.User
+import org.jetbrains.annotations.NotNull
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.transaction.annotation.Transactional
 
@@ -18,7 +19,7 @@ class UserSignupService(
     override fun signup(request: UserSignupRequest) {
         val user = User(
             email = request.email,
-            password = request.password,
+            password = passwordEncoder.encode(request.password),
             name = request.name,
             id = null
         )

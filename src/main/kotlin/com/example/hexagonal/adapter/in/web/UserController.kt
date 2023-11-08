@@ -10,12 +10,13 @@ import com.example.hexagonal.application.port.`in`.UserSignupUseCase
 import com.example.hexagonal.common.WebAdapter
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @WebAdapter
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 class UserController(
     private val userSignupUseCase: UserSignupUseCase,
     private val userLoginUseCase: UserLoginUseCase,
@@ -23,11 +24,11 @@ class UserController(
     private val queryUserMyInfoUseCase: QueryUserMyInfoUseCase
 ) {
     @PostMapping
-    fun signup(userSignupRequest: UserSignupRequest) =
+    fun signup(@RequestBody userSignupRequest: UserSignupRequest) =
         userSignupUseCase.signup(userSignupRequest)
 
     @PostMapping("/login")
-    fun login(userLoginRequest: UserLoginRequest) =
+    fun login(@RequestBody userLoginRequest: UserLoginRequest) =
         userLoginUseCase.login(userLoginRequest)
 
     @GetMapping("/all")
