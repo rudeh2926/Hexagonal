@@ -5,5 +5,6 @@ import com.example.hexagonal.domain.User
 interface UserRepositoryPort {
     fun saveUser(user: User)
 
-    fun findByEmail(email : String)
+    fun findByEmail(email : String): User
+
 }

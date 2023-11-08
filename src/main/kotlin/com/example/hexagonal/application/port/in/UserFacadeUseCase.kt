@@ -1,4 +1,9 @@
 package com.example.hexagonal.application.port.`in`
 
-class UserFacadeUseCase {
+import com.example.hexagonal.domain.User
+
+interface UserFacadeUseCase {
+    fun currentUser() : User
+
+    fun getUserByEmail(email : String) : User
 }
