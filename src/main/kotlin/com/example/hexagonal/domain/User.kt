@@ -7,16 +7,16 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-class User (
+class User(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id : Long,
+    val id: Long?,
 
     @Column(nullable = false)
-    val email : String,
+    val email: String,
 
     @Column(nullable = false)
-    val password : String,
+    val password: String,
 
     @Column(nullable = false)
-    val name : String
+    val name: String
 )

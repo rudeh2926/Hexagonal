@@ -1,4 +1,7 @@
 package com.example.hexagonal.application.port.`in`
 
-class UserSignupUseCase {
+import com.example.hexagonal.adapter.dto.request.UserSignupRequest
+
+interface UserSignupUseCase {
+    fun signup(userSignupRequest: UserSignupRequest)
 }
