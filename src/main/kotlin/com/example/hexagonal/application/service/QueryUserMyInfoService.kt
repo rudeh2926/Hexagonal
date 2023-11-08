@@ -9,13 +9,11 @@ import org.springframework.transaction.annotation.Transactional
 
 @UseCase
 class QueryUserMyInfoService (
-    private val userRepositoryPort : UserRepositoryPort,
     private val userFacadeUseCase: UserFacadeUseCase
 ) : QueryUserMyInfoUseCase{
     @Transactional(readOnly = true)
     override fun getMyInfo(): QueryUserResponse {
         val user = userFacadeUseCase.currentUser()
-       userRepositoryPort.findByEmail(user.email)
         return QueryUserResponse(user.email, user.name)
     }
 }

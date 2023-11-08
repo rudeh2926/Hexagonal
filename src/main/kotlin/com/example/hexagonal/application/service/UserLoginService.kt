@@ -18,8 +18,8 @@ class UserLoginService(
     @Transactional(readOnly = true)
     override fun login(request: UserLoginRequest) : TokenResponse {
         val user = userRepositoryPort.findByEmail(request.email) ?: throw Exception()
-        if (passwordEncoder.matches(request.password, user.password)) {
-            throw Exception()
+        if (passwordEncoder.matches(user.password, request.password)) {
+            throw Exception("asdf")
         }
         return jwtProvider.getToken(user)
     }
