@@ -3,6 +3,7 @@ package com.example.hexagonal.adapter.`in`.web
 import com.example.hexagonal.adapter.dto.request.UserLoginRequest
 import com.example.hexagonal.adapter.dto.request.UserSignupRequest
 import com.example.hexagonal.adapter.dto.response.QueryUserResponse
+import com.example.hexagonal.application.port.`in`.QueryUserMyInfoUseCase
 import com.example.hexagonal.application.port.`in`.QueryUserUseCase
 import com.example.hexagonal.application.port.`in`.UserLoginUseCase
 import com.example.hexagonal.application.port.`in`.UserSignupUseCase
@@ -18,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController
 class UserController(
     private val userSignupUseCase: UserSignupUseCase,
     private val userLoginUseCase: UserLoginUseCase,
-    private val queryUserUseCase: QueryUserUseCase
+    private val queryUserUseCase: QueryUserUseCase,
+    private val queryUserMyInfoUseCase: QueryUserMyInfoUseCase
 ) {
     @PostMapping
     fun signup(userSignupRequest: UserSignupRequest) =
@@ -31,4 +33,8 @@ class UserController(
     @GetMapping("/all")
     fun queryAllUser() =
         queryUserUseCase.queryAllUser()
+
+    @GetMapping("/my")
+    fun queryMyInfo() =
+        queryUserMyInfoUseCase.getMyInfo()
 }
