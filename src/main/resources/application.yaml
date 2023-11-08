@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${URL}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  jackson:
+    property-naming-strategy : SNAKE_CASE
+
+  jwt :
+    key : ${JWT_KEY}
+    live :
+      accessToken : ${ACCESS_TOKEN_TIME}
+

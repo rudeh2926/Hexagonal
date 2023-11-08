@@ -22,10 +22,8 @@ class JwtProvider(
     private var key: String,
 
     @Value("\${spring.jwt.live.accessToken}")
-    private val accessTokenTime: Long,
-
-    @Value("\${spring.jwt.live.refreshToken}")
-    private val refreshTokenTime: Long) {
+    private val accessTokenTime: Long
+) {
     init {
         key = Base64.getEncoder().encodeToString(key.toByteArray())
     }
