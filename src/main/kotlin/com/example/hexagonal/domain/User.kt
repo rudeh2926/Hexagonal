@@ -12,7 +12,7 @@ class User (
     val id : Long,
 
     @Column(nullable = false)
-    val accountId : String,
+    val email : String,
 
     @Column(nullable = false)
     val password : String,
