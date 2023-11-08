@@ -7,4 +7,5 @@ interface UserRepositoryPort {
 
     fun findByEmail(email : String) : User
 
+    fun findAllUser() : List<User>
 }

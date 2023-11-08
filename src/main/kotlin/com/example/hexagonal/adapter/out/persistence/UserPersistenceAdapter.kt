@@ -14,5 +14,9 @@ class UserPersistenceAdapter(
     override fun saveUser(user: User) {
        userRepository.save(user)
     }
+
+    override fun findAllUser(): List<User> {
+       return userRepository.findAll()
+    }
 }
 
