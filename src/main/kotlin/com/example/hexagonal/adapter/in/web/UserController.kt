@@ -2,9 +2,7 @@ package com.example.hexagonal.adapter.`in`.web
 
 import com.example.hexagonal.adapter.dto.request.UserLoginRequest
 import com.example.hexagonal.adapter.dto.request.UserSignupRequest
-import com.example.hexagonal.adapter.dto.response.QueryUserResponse
 import com.example.hexagonal.application.port.`in`.QueryUserMyInfoUseCase
-import com.example.hexagonal.application.port.`in`.QueryUserUseCase
 import com.example.hexagonal.application.port.`in`.UserLoginUseCase
 import com.example.hexagonal.application.port.`in`.UserSignupUseCase
 import com.example.hexagonal.common.WebAdapter
