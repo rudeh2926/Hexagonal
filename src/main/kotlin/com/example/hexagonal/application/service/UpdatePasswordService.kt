@@ -15,9 +15,13 @@ class UpdatePasswordService (
     @Transactional
     override fun update(request: UpdatePasswordRequest) {
         val user = userFacadeUseCase.currentUser()
-        if (!passwordEncoder.matches(user.password, request.newPassword) || request.validPassword != request.newPassword) {
-            throw Exception("틀림")
+        if (!passwordEncoder.matches(user.password, request.password)) {
+            throw Exception("1틀림")
         }
-        user.update(request.newPassword)
+        if (request.validPassword != request.newPassword) {
+            throw Exception("2틀림")
+        }
+        val password = passwordEncoder.encode(request.newPassword)
+        user.update(password)
     }
 }
