@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController
 class UserController(
     private val userSignupUseCase: UserSignupUseCase,
     private val userLoginUseCase: UserLoginUseCase,
-    private val queryUserUseCase: QueryUserUseCase,
     private val queryUserMyInfoUseCase: QueryUserMyInfoUseCase
 ) {
     @PostMapping
@@ -30,10 +29,6 @@ class UserController(
     @PostMapping("/login")
     fun login(@RequestBody userLoginRequest: UserLoginRequest) =
         userLoginUseCase.login(userLoginRequest)
-
-    @GetMapping("/all")
-    fun queryAllUser() =
-        queryUserUseCase.queryAllUser()
 
     @GetMapping("/my")
     fun queryMyInfo() =
