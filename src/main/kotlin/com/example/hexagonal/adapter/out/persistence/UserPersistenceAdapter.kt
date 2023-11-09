@@ -10,8 +10,7 @@ class UserPersistenceAdapter(
     private val userRepository: UserRepository
 ) : UserRepositoryPort {
     override fun findByEmail(email: String): User {
-        return userRepository.findByEmail(email)
-            .orElseThrow()
+        return userRepository.findByEmail(email).orElseThrow { Exception("adsf") }
     }
 
     override fun saveUser(user: User) {

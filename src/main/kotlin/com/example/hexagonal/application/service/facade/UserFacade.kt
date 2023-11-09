@@ -17,5 +17,5 @@ class UserFacade(
     }
 
     override fun getUserByEmail(email: String): User =
-        userRepositoryPort.findByEmail(email)
+        userRepositoryPort.findByEmail(email) ?: throw Exception("adsf")
 }

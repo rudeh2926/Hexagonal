@@ -1,8 +1,7 @@
 package com.example.hexagonal.config
 
-import com.example.hexagonal.global.security.jwt.JwtProvider
+import com.example.hexagonal.global.security.jwt.JwtTokenProvider
 import com.example.hexagonal.global.security.jwt.JwtTokenFilter
-import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -13,7 +12,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 class SecurityConfig (
-    private val jwtProvider: JwtProvider,
+    private val jwtProvider: JwtTokenProvider,
 ) {
     @Bean
     fun passwordEncoder() = BCryptPasswordEncoder()
